@@ -1,0 +1,28 @@
+# SQLite version 3.x
+#   gem install sqlite3
+development:
+  adapter: postgressql
+  database: product
+  pool: 5
+  timeout: 5000
+  username: Lucky
+  password: lucky
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: postgressql
+  database: product_test
+  pool: 5
+  timeout: 5000
+  username: Lucky
+  password: lucky
+
+production:
+  adapter: postgressql
+  database: product_production
+  pool: 5
+  timeout: 5000
+  username: Lucky
+  password: lucky
