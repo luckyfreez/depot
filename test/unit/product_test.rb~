@@ -1,0 +1,44 @@
+require 'test_helper'
+
+def new_product(image_url)
+  Product.new(:title => "Some title",
+              :price => "3",
+              :description => "I love you",
+              :image_url => image_url)
+end
+
+class ProductTest < ActiveSupport::TestCase
+  # Replace this with your real tests.
+  test "image url" do
+    validUrl = %w{blah.jpg b.png i.gif gif.jpg}
+    invalidUrl = %w{blah.pgn jpg.1 blajpg}
+    validUrl.each {|name| 
+      assert new_product(name).valid?, "#{name} shouldn't be invalid"
+    }
+    invalidUrl.each do |name|
+      assert new_product(name).invalid?, "#{name} shouldn't be valid"
+    end
+  end
+
+  test "uniqueness of title" do
+    new_Product
+    create_Product
+    post new_product("a.jpg")
+    product1 = Product.create(
+              :title => "Some title",
+              :price => "3",
+              :description => "I love you",
+              :image_url => "something.jpg")
+  
+    product2 = Product.new(
+              :title => "Some title",
+              :price => "3",
+              :description => "I love you",
+              :image_url => "something.jpg")
+  
+    product2.valid?
+    assert_no_difference('Product.count') do 
+      post :create, :product => new_product("b.jpg")
+    end
+  end
+end
