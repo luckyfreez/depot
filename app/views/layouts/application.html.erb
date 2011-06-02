@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
-  <%= stylesheet_link_tag :all %>
+  <title>Lucky's online book store</title>
+  <%= stylesheet_link_tag "scaffold" %>
+  <%= stylesheet_link_tag "depot", :media => "all" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
 
-<%= yield %>
+<body id="store">
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Lucky Bookshelf" %>
+  </div>
+
+  <div id="columns">
+    <div id="side">
+      <a href="/">Home</a><br />
+      <a href="http://www.phonetab.com">Our Company</a><br />
+    </div>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
