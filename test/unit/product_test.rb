@@ -10,6 +10,9 @@ end
 
 class ProductTest < ActiveSupport::TestCase
   # Replace this with your real tests.
+
+  fixtures :products
+
   test "image url" do
     validUrl = %w{blah.jpg b.png i.gif gif.jpg}
     invalidUrl = %w{blah.pgn jpg.1 blajpg}
