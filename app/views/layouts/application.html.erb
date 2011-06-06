@@ -8,7 +8,7 @@
   <%= csrf_meta_tag %>
 </head>
 
-<body id="store">
+<body class="<%= params[:controller] %>-<%= params[:action] %>">
   <div id="banner">
     <%= image_tag("logo.png") %>
     <%= @page_title || "Lucky Bookshelf" %>
@@ -19,7 +19,7 @@
       <a href="/">Home</a><br />
       <a href="http://www.phonetab.com">Our Company</a><br />
       <p><%= Time.now %></p>
-      <P><%= "This is your #{@counter} visits. Welcome back." if @counter >= 5 %></p>
+      <P><%= "This is your #{@counter} visits. Welcome back." if @counter && @counter >= 5 %></p>
 
     </div>
 

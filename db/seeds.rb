@@ -7,6 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 # encoding: utf-8
+LineItem.delete_all
+Cart.delete_all
 Product.delete_all
 Product.create(:title => 'Web Design for Developers',
   :description => 
