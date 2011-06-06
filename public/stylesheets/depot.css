@@ -120,6 +120,7 @@
 .store-index  .title {
   font-size: 120%;
   font-family: sans-serif;
+  width: 40;
 }
 
 .store-index .entry img {
