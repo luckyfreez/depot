@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
+    debugger
     @products = Product.all
 
     respond_to do |format|

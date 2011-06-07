@@ -16,6 +16,12 @@
 
   <div id="columns">
     <div id="side">
+      <% if @cart %>
+        <% hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+          <%= render @cart %>
+        <% end %>
+      <% end %>
+
       <a href="/">Home</a><br />
       <a href="http://www.phonetab.com">Our Company</a><br />
       <p><%= Time.now %></p>

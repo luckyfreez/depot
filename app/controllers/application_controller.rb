@@ -17,4 +17,5 @@ class ApplicationController < ActionController::Base
         session[:counter] = session[:counter] + 1
       end
     end
+
 end

@@ -49,7 +49,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to(@cart, :notice => 'Cart was successfully created.') }
+        format.html { redirect_to(store_url, :notice => 'Cart was successfully created.') }
         format.xml  { render :xml => @cart, :status => :created, :location => @cart }
       else
         format.html { render :action => "new" }
@@ -84,6 +84,7 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(store_url,
         :notice => 'Your cart is currently empty')}
+      format.js
       format.xml  { head :ok }
     end
   end
