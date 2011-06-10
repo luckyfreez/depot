@@ -22,5 +22,17 @@ Depot::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "domain.of.sender.net",
+    :authentication => "plain",
+    :user_name => "lucky.univ",
+    :password => "9t0f1nn2z5o9",
+    :enable_strattles_auto => true
+  }
 end
 
