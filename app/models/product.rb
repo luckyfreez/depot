@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   default_scope :order => 'title'
   has_many :line_items
+  has_many :orders, :through => :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
   private
@@ -8,7 +9,7 @@ class Product < ActiveRecord::Base
       if line_items.empty?
         return true
       else 
-        error.add(:base, 'Line Items present')
+        self.errors.add(:base, 'Line Items present')
         return false
       end
     end

@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    debugger
     @products = Product.all
 
     respond_to do |format|
@@ -74,11 +73,22 @@ class ProductsController < ApplicationController
   # DELETE /products/1.xml
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-
     respond_to do |format|
-      format.html { redirect_to(products_url) }
-      format.xml  { head :ok }
-    end
+  
+     if @product.destroy
+       format.html { redirect_to(products_url) }
+       format.xml  { head :ok }
+     else 
+       format.html { redirect_to(products_url, :notice => 'Item exists!') }
+     end
+   end
+  end
+end
+
+def who_bought
+  @product = Product.find(params[:id])
+  respond_to do |format|
+    format.atom
+    format.xml { render :xml => @product }
   end
 end
