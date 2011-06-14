@@ -34,3 +34,7 @@ gem 'will_paginate', '>= 3.0.pre'
 #   gem 'webrat'
 # end
 
+group :development, :test do
+  gem 'ruby-debug'
+end
+
